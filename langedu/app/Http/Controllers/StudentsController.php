@@ -23,7 +23,7 @@ class StudentsController extends Controller
         'firstname'=>'required|max:255',
         'lastname'=>'required|max:255',
         'email'=>'required|max:255|unique:students,email',
-        'dob' => 'date',
+        'dob' => 'required|date',
     ]);
     Students::create([
        'username' => $request->input('username'),

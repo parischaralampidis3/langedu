@@ -10,9 +10,8 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <div class="flex flex-column justify-center items-center mt-10">
-                    <form method="POST" action="{{url('create')}}">
+                    <form method="POST" action="{{url('/create')}}">
                         @csrf
-
                     <div class="flex flex-col">
                         <label class="font-bold" for="username">Username</label>
                         <input class="rounded-md mt-5" type="text" name="username" id="username" value="{{old('username')}}" required/>
@@ -46,8 +45,8 @@
                     </div>
 
                               <div class="flex flex-col">
-                        <label class="font-bold" for="date">Datebirth</label>
-                        <input class="rounded-md mt-5" type="date" name="date" id="date" value="{{old('dob')}}" required/>
+                        <label class="font-bold" for="dob">Datebirth</label>
+                        <input class="rounded-md mt-5" type="date" name="dob" id="dob" value="{{old('dob')}}" required/>
                         @error('dob')
                             <p>{{$message}}</p>
                         @enderror
