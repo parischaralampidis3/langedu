@@ -23,7 +23,6 @@ class StudentTest extends TestCase
             'lastname' => $students->lastname,
             'email' => $students->email,
             'dob' => $students->dob,
-            'is_active' => $students->is_active,
             'user_id' => $students->user_id
         ]);
     }
@@ -50,7 +49,6 @@ class StudentTest extends TestCase
             'lastname' => 'testsurname',
             'email' => 'testemail@test',
             'dob' => '16-12-2024',
-            'is_active' => 'True',
             'user_id' => 1
         ];
         $student = Students::factory()->create();
@@ -62,10 +60,41 @@ class StudentTest extends TestCase
             'lastname' => $student->lastname,
             'email' => $student->email,
             'dob' => $student->dob,
-            'is_active' => $student->is_active,
             'user_id' => $student->user_id
 
         ]);
         $this->assertNotNull($student->id);
+    }
+
+    public function test_that_a_student_can_be_updated(){     
+          $student = Students::factory()->create([
+            'username' => 'test',
+            'firstname' => 'testname',
+            'lastname' => 'testsurname',
+            'email' => 'testemail@test.com',
+            'dob' => '2024-12-16',
+        ]);
+
+        $updated_student_data = [
+            'username' => 'test2',
+            'firstname' => 'testname2',
+            'lastname' => 'testsurname2',
+            'email' => 'testemail3@test.com',
+            'dob' => '2024-12-18',
+            'id' => 2
+        ];
+ 
+
+        $student->update($updated_student_data);
+
+        $this->assertDatabaseHas('students',[
+            'username' => 'test2',
+            'firstname' => 'testname2',
+            'lastname' => 'testsurname2',
+            'email' => 'testemail3@test.com',
+            'dob' => '2024-12-18',
+            'id' => $student->id
+        ]);
+
     }
 }

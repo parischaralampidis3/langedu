@@ -23,7 +23,6 @@ class StudentsFactory extends Factory
             'firstname'=>$this->faker->firstname(),
             'lastname'=>$this->faker->lastname(),
             'email'=>$this->faker->email(),
-            'is_active'=>$this->faker->boolean(),
             'dob'=>$this->faker->date(),
            
 
