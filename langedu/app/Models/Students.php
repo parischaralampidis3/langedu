@@ -5,7 +5,8 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Student extends Model
+class Students extends Model
+
 {
     use HasFactory;
 
@@ -13,6 +14,6 @@ class Student extends Model
     protected $fillable = ['username', 'firstname', 'lastname', 'email', 'is_active', 'dob'];
     
     public function user(){
-        $this->belongsTo(User::class);
+     return $this->belongsTo(User::class);
     }
 }

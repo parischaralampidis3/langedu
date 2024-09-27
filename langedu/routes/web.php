@@ -2,11 +2,21 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StudentsController;
 
 
+//Dashboard routes
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+//Students routes
+//index routes
+Route::get('students',[StudentsController::class,'index'])->name('students');
+Route::get('student/{student:id',[StudentsController::class,'show'])->name('student.show');
+//create routes
+Route::get('/create',[StudentsController::class,'create'])->name('create');
+Route::post('create',['StudentsController::class','store']);
+//---------------
 
 Route::get('/',function(){
     return view('auth.register');

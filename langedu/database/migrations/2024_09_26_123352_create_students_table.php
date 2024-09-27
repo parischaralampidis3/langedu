@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
+            $table -> string('user_id')->constrained()->cascadeOnDelete()->nullable();
             $table -> string('username');
             $table -> string('firstname');
             $table -> string('lastname');
@@ -20,6 +21,7 @@ return new class extends Migration
             $table -> boolean('is_active');
             $table -> date('dob')->nullable(); 
             $table->timestamps();
+
         });
     }
 
