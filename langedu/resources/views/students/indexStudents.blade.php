@@ -1,5 +1,13 @@
+ <style>
+    .sky{
+        background-color: rgb(6 182 212);
+    }
+    .green{
+        	background-color: rgb(34 197 94);
+    }
+ </style>
 <x-app-layout>
-  
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
@@ -10,8 +18,8 @@
                         <div class="flex flex-row justify-between">
                             <h1 class="text-xl font-bold">Students List</h1>
                             <div class="flex flex-col">
-                                <a class="update bg-blue-500 text-white font-bold py-2 px-2 rounded"
-                                    href="{{route('students.createStudent')}}">Create Company</a>
+                                <a class="green text-white font-bold py-2 px-2 rounded"
+                                    href="{{route('students.createStudent')}}">Create Student</a>
                             </div>
                         </div>
                         <br /><br />
@@ -36,6 +44,11 @@
                                             <td class="p-4 py-5">{!! $student->lastname!!}</td>
                                             <td class="p-4 py-5">{!! $student->email!!}</td>
                                             <td class="p-4 py-5">{!! $student->formatted_dob!!}</td>
+                                            <td class="p-4 py-5 flex">
+                                                <a class="sky text-white font-bold py-2 px-2 rounded" href="{{route('students.showStudent',$student->id)}}">Show</a>
+                                                
+
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>

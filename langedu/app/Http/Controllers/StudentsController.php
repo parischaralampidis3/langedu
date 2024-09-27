@@ -8,7 +8,7 @@ class StudentsController extends Controller
 {
  public function index(){
     $students = Students::latest()->get();
-    return view('students.students', ['students'=>$students]);
+    return view('students.indexStudents', ['students'=>$students]);
  }
  public function show($id){
     $student = Students::find($id);
