@@ -16,6 +16,10 @@ Route::get('student/{student:id}',[StudentsController::class,'show'])->name('stu
 //create routes
 Route::get('/create',[StudentsController::class,'create'])->name('students.createStudent');
 Route::post('create',[StudentsController::class,'store']);
+//update routes
+Route::get('/update',[StudentsController::class,'edit'])->name('students.editStudent');
+Route::post('update',[StudentsController::class,'update']);
+
 //---------------
 
 Route::get('/',function(){

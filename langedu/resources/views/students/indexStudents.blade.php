@@ -1,11 +1,12 @@
- <style>
-    .sky{
+<style>
+    .sky {
         background-color: rgb(6 182 212);
     }
-    .green{
-        	background-color: rgb(34 197 94);
+
+    .green {
+        background-color: rgb(34 197 94);
     }
- </style>
+</style>
 <x-app-layout>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <div class="py-12">
@@ -14,13 +15,24 @@
 
                 <section class="flex justify-around mx-5 px-0 py-6"> <!-- Added margin-x and padding-x -->
                     <div class="mt-12 mx-auto overflow-x-auto">
-
-                        <div class="flex flex-row justify-between">
-                            <h1 class="text-xl font-bold">Students List</h1>
+                    <div>
+                        <div class="flex justify-around items-center p-10">
+                          
+                            <a class="green mt-10 ml-10 bg-green-600 text-white font-bold py-2 px-2 hover:underline"
+                                href="dashboard">Go at
+                                the main
+                                page</a>
+                        </div>
+                        <br><br>
+                        <div class="flex flex-row mt-5 justify-between">
+                            <h1 class="text-xl mt-5  font-bold">Students List</h1>
                             <div class="flex flex-col">
+
+                            
                                 <a class="green text-white font-bold py-2 px-2 rounded"
                                     href="{{route('students.createStudent')}}">Create Student</a>
                             </div>
+                        
                         </div>
                         <br /><br />
 
@@ -45,8 +57,10 @@
                                             <td class="p-4 py-5">{!! $student->email!!}</td>
                                             <td class="p-4 py-5">{!! $student->formatted_dob!!}</td>
                                             <td class="p-4 py-5 flex">
-                                                <a class="sky text-white font-bold py-2 px-2 rounded" href="{{route('students.showStudent',$student->id)}}">Show</a>
-                                                
+                                                <a class="sky text-white font-bold py-2 px-2 rounded"
+                                                    href="{{route('students.showStudent', $student->id)}}">Show</a>
+                                                <a class="sky text-white font-bold py-2 ml-3 px-2 rounded"
+                                                    href="{{route('students.editStudent', $student->id)}}">Update</a>
 
                                             </td>
                                         </tr>

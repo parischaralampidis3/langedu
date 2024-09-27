@@ -34,4 +34,23 @@ class StudentsController extends Controller
     ]);
     return redirect('dashboard');
  }
+
+ public function edit(){
+    return view('students.editStudent');
+ }
+
+ public function update(Request $request, $id){
+    $student = Students::find($id);
+    $request ->validate([
+         'username'=> 'required|max:255',
+        'firstname'=>'required|max:255',
+        'lastname'=>'required|max:255',
+        'email'=>'required|max:255|unique:students,email',
+        'dob' => 'required|date',
+    ]);
+
+    $student->update($request->all());
+    return view('students.indexStudents');
+
+ }
 }
