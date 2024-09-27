@@ -14,8 +14,8 @@ Route::get('/dashboard', function () {
 Route::get('students',[StudentsController::class,'index'])->name('students');
 Route::get('student/{student:id',[StudentsController::class,'show'])->name('student.show');
 //create routes
-Route::get('/create',[StudentsController::class,'create'])->name('create');
-Route::post('create',['StudentsController::class','store']);
+Route::get('/create',[StudentsController::class,'create'])->name('students.createStudent');
+Route::post('create',[StudentsController::class,'store']);
 //---------------
 
 Route::get('/',function(){

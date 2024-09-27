@@ -18,7 +18,6 @@ return new class extends Migration
             $table -> string('firstname');
             $table -> string('lastname');
             $table -> string('email')->unique();
-            $table -> boolean('is_active');
             $table -> date('dob')->nullable(); 
             $table->timestamps();
 

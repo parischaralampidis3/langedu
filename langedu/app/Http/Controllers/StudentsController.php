@@ -23,9 +23,15 @@ class StudentsController extends Controller
         'firstname'=>'required|max:255',
         'lastname'=>'required|max:255',
         'email'=>'required|max:255|unique:students,email',
-        'dob' => 'required|date',
-        'is_active'=>'boolean'
+        'dob' => 'date',
     ]);
-    return redirect('students');
+    Students::create([
+       'username' => $request->input('username'),
+       'firstname' => $request->input('firstname'),
+       'lastname' => $request->input('lastname'),
+       'email' => $request->input('email'),
+       'dob' => $request->input('dob')
+    ]);
+    return redirect('dashboard');
  }
 }
