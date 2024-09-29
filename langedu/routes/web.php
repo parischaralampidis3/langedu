@@ -17,9 +17,8 @@ Route::get('student/{student:id}',[StudentsController::class,'show'])->name('stu
 Route::get('/create',[StudentsController::class,'create'])->name('students.createStudent');
 Route::post('create',[StudentsController::class,'store']);
 //update routes
-Route::get('/update',[StudentsController::class,'edit'])->name('students.editStudent');
-Route::post('update',[StudentsController::class,'update']);
-
+Route::get('/update/{student:id}',[StudentsController::class,'edit'])->name('students.editStudent');
+Route::put('update/{student:id}',[StudentsController::class,'update'])->name('students.update');
 //---------------
 
 Route::get('/',function(){

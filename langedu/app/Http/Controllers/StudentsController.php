@@ -35,8 +35,9 @@ class StudentsController extends Controller
     return redirect('dashboard');
  }
 
- public function edit(){
-    return view('students.editStudent');
+ public function edit($id){
+    $student = Students::findOrFail($id);
+    return view('students.editStudent',compact('student'));
  }
 
  public function update(Request $request, $id){
