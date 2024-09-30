@@ -73,8 +73,9 @@
                                     <p>{{$message}}</p>
                                 @enderror
                             </div>
-                            <button style="background-color:blue"
-                                class="mt-10 ml-10 bg-green-600 text-white font-bold py-2 px-2 hover:underline"
+                            <br><br>
+                            <button 
+                                class=" green mt-10 ml-10 bg-green-600 text-white font-bold py-2 px-2 hover:underline"
                                 type="submit">Submit</button>
                         </form>
                     </div>

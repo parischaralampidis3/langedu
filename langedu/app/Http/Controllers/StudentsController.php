@@ -51,7 +51,7 @@ class StudentsController extends Controller
     ]);
 
     $student->update($request->all());
-    return view('students.indexStudents');
+    return redirect()->back();
 
  }
 }
