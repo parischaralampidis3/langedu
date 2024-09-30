@@ -72,6 +72,10 @@
                                     <p>{{ $message }}</p>
                                 @enderror
                             </div>
+                            <div class="flex flex-col">
+                                <label for="suspended">Suspend Student</label>
+                                <input type="checkbox" id="suspended" name="suspended" value="1" {{$student -> suspended ? 'checked' : ''}} />
+                            </div>
                             <br><br>
                             <button
                                 class="green mt-10 ml-10 bg-green-600 text-white font-bold py-2 px-2 hover:underline"

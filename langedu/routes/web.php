@@ -8,7 +8,7 @@ use App\Http\Controllers\StudentsController;
 //Dashboard routes
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified', 'is_active'])->name('dashboard');
 //Students routes
 //index routes
 Route::get('students',[StudentsController::class,'index'])->name('students.indexStudents');

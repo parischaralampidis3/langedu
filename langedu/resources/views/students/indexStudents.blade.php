@@ -6,7 +6,8 @@
     .green {
         background-color: rgb(34 197 94);
     }
-    .red{
+
+    .red {
         background-color: rgb(220 38 38);
     }
 </style>
@@ -18,76 +19,77 @@
 
                 <section class="flex justify-around mx-5 px-0 py-6"> <!-- Added margin-x and padding-x -->
                     <div class="mt-12 mx-auto overflow-x-auto">
-                    <div>
-                        <div class="flex justify-around items-center p-10">
-                          
-                            <a class="green mt-10 ml-10 bg-green-600 text-white font-bold py-2 px-2 hover:underline"
-                                href="dashboard">Go at
-                                the main
-                                page</a>
-                        </div>
-                        <br><br>
-                        <div class="flex flex-row mt-5 justify-between">
-                            <h1 class="text-xl mt-5  font-bold">Students List</h1>
-                            <div class="flex flex-col">
+                        <div>
+                            <div class="flex justify-around items-center p-10">
 
-                            
-                                <a class="green text-white font-bold py-2 px-2 rounded"
-                                    href="{{route('students.createStudent')}}">Create Student</a>
+                                <a class="green mt-10 ml-10 bg-green-600 text-white font-bold py-2 px-2 hover:underline"
+                                    href="dashboard">Go at
+                                    the main
+                                    page</a>
                             </div>
-                        
-                        </div>
-                        <br /><br />
-
-                        <div class="inline-block min-w-full shadow-md rounded-lg overflow-hidden">
-                            <table class="min-w-full leading-normal">
-                                <thead>
-                                    <tr>
-                                        <th class="p-2 border-b border-slate-200 bg-slate-50">Username</th>
-                                        <th class="p-2 border-b border-slate-200 bg-slate-50">Name</th>
-                                        <th class="p-2 border-b border-slate-200 bg-slate-50">Surname</th>
-                                        <th class="p-2 border-b border-slate-200 bg-slate-50">Email</th>
-                                        <th class="p-2 border-b border-slate-200 bg-slate-50">BirthDate</th>
-                                        <th class="p-2 border-b border-slate-200 bg-slate-50">Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($students as $student)
-                                        <tr class="hover:bg-slate-50 border-b border-slate-200">
-                                            <td class="p-4 py-5">{!! $student->username!!}</td>
-                                            <td class="p-4 py-5">{!! $student->firstname !!}</td>
-                                            <td class="p-4 py-5">{!! $student->lastname!!}</td>
-                                            <td class="p-4 py-5">{!! $student->email!!}</td>
-                                            <td class="p-4 py-5">{!! $student->formatted_dob!!}</td>
-                                            <td class="p-4  flex">
-                                                
-                                                <div class="mt-2">
-                                                <a class="sky text-white font-bold py-2 px-2 rounded"
-                                                    href="{{route('students.showStudent', $student->id)}}">Show</a>
-                                                </div>
-                                                <div class="mt-2">
-                                                    <a class="sky text-white ml-2  font-bold py-2 ml-3 px-2 rounded"
-                                                    href="{{route('students.editStudent', $student->id)}}">Update</a>
-                                                </div>
-                                                <div>
-                                                <form action="{{route('students.delete', $student->id)}}" method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button class="red text-white font-bold ml-3 p-2  rounded">
-                                                        Delete
-                                                    </button>
-
-                                                </form>
-                                                </div>
-                                                
-
-                                            </td>
+                            <br><br>
+                            <div class="flex flex-row mt-5 justify-between">
+                                <h1 class="text-xl mt-5  font-bold">Students List</h1>
+                                <div class="flex flex-col">
+                                    <a class="green text-white font-bold py-2 px-2 rounded"
+                                        href="{{route('students.createStudent')}}">Create Student</a>
+                                </div>
+                            </div>
+                            <br /><br />
+                            
+                            <div class="inline-block min-w-full shadow-md rounded-lg overflow-hidden">
+                                <table class="min-w-full leading-normal">
+                                    <thead>
+                                        <tr>
+                                            <th class="p-2 border-b border-slate-200 bg-slate-50">Username</th>
+                                            <th class="p-2 border-b border-slate-200 bg-slate-50">Name</th>
+                                            <th class="p-2 border-b border-slate-200 bg-slate-50">Surname</th>
+                                            <th class="p-2 border-b border-slate-200 bg-slate-50">Email</th>
+                                            <th class="p-2 border-b border-slate-200 bg-slate-50">BirthDate</th>
+                                            <th class="p-2 border-b border-slate-200 bg-slate-50">Actions</th>
                                         </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($students as $student)
+                                            <tr class="hover:bg-slate-50 border-b border-slate-200">
+                                                <td class="p-4 py-5">{!! $student->username!!}</td>
+                                                <td class="p-4 py-5">{!! $student->firstname !!}</td>
+                                                <td class="p-4 py-5">{!! $student->lastname!!}</td>
+                                                <td class="p-4 py-5">{!! $student->email!!}</td>
+                                                <td class="p-4 py-5">{!! $student->formatted_dob!!}</td>
+                                                <td class="p-4  flex">
+
+                                                    <div class="mt-2">
+                                                        <a class="sky text-white font-bold py-2 px-2 rounded"
+                                                            href="{{route('students.showStudent', $student->id)}}">Show</a>
+                                                    </div>
+                                                    <div class="mt-2">
+                                                        <a class="sky text-white ml-2  font-bold py-2 ml-3 px-2 rounded"
+                                                            href="{{route('students.editStudent', $student->id)}}">Update</a>
+                                                    </div>
+                                                    <div>
+                                                        <form action="{{route('students.delete', $student->id)}}"
+                                                            method="POST">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button class="red text-white font-bold ml-3 p-2  rounded">
+                                                                Delete
+                                                            </button>
+                                                        </form>
+                                                    </div>
+
+                                                    <div class="mt-2">
+                                                        <label for="suspended">suspended</label>
+                                                        <input type="checkbox" id="suspended" name="suspended" value="1"
+                                                            {{$student->suspended ? 'checked' : ''}} />
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                    </div>
                 </section>
 
             </div>
