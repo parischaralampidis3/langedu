@@ -1,64 +1,46 @@
 <?php
 
 namespace App\Http\Controllers;
- 
+use App\Repositories\StudentsRepository;
 use Illuminate\Http\Request;
 use App\Models\Students;
 class StudentsController extends Controller
 {
- public function index(){
-    $students = Students::latest()->get();
-    return view('students.indexStudents', ['students'=>$students]);
+ private $studentsRepository;
+ public function __construct(StudentsRepository $studentsRepository){
+   $this -> studentsRepository = $studentsRepository;
  }
+
+ public function index(){
+   $students = $this -> studentsRepository-> index();
+   return $students;
+ }
+
  public function show($id){
-    $student = Students::find($id);
-    return view('students.showStudent', ['student'=>$student]);
+   $student = $this -> studentsRepository->show($id);
+   return $student;
  }
  public function create(){
-    return view('students.createStudent');
+    $createStudent = $this->studentsRepository->create();
+    return $createStudent;
  }
  public function store(Request $request){
-    $request -> validate([
-        'username'=> 'required|max:255',
-        'firstname'=>'required|max:255',
-        'lastname'=>'required|max:255',
-        'email'=>'required|max:255|unique:students,email',
-        'dob' => 'required|date',
-    ]);
-    Students::create([
-       'username' => $request->input('username'),
-       'firstname' => $request->input('firstname'),
-       'lastname' => $request->input('lastname'),
-       'email' => $request->input('email'),
-       'dob' => $request->input('dob')
-    ]);
-    return redirect('dashboard');
+    $storeStudent = $this->studentsRepository->store($request);
+    return  $storeStudent;
  }
 
  public function edit($id){
-    $student = Students::findOrFail($id);
-    return view('students.editStudent',compact('student'));
+    $editStudent = $this->studentsRepository->edit($id);
+    return $editStudent;
  }
 
  public function update(Request $request, $id){
-    $student = Students::find($id);
-    $request ->validate([
-         'username'=> 'required|max:255',
-        'firstname'=>'required|max:255',
-        'lastname'=>'required|max:255',
-        'email'=>'required|max:255|unique:students,email',
-        'dob' => 'required|date',
-    ]);
-
-    $student->update($request->all());
-    return redirect()->back();
+   $updateStudent = $this->studentsRepository->update($request,$id);
+   return $updateStudent;
  }
 
- public function destroy(Request $request, $id){
-   $student = Students::find($id);
-   $student->delete();
-   $students = Students::all(); 
-   return view('students.indexStudents', ['students' => $students]);
-
+ public function destroy($id){
+    $destroyStudent = $this->studentsRepository->destroy($id);
+    return $destroyStudent;
  }
 }
