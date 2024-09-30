@@ -7,12 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 
 class Students extends Model
-
 {
     use HasFactory;
-
     protected $table = 'students';
-    protected $fillable = ['username', 'firstname', 'lastname', 'email', 'dob'];
+    protected $fillable = ['username', 'firstname', 'lastname', 'email', 'dob','user_id'];
     
     public function user(){
      return $this->belongsTo(User::class);

@@ -15,13 +15,13 @@ use Illuminate\Http\Request;
 
      /**index method */
      public function index(){
-          $students = Students::latest()->get();
+          $students = Students::where('user_id', auth()->id())->latest()->get();
         return view('students.indexStudents', ['students'=>$students]);
      }
-     
      /**show method */
      public function show($id){
           $student = Students::find($id);
+
     return view('students.showStudent', ['student'=>$student]);
      }
 
@@ -39,6 +39,7 @@ use Illuminate\Http\Request;
         'dob' => 'required|date',
     ]);
     Students::create([
+       'user_id'=>auth()->id(),
        'username' => $request->input('username'),
        'firstname' => $request->input('firstname'),
        'lastname' => $request->input('lastname'),
