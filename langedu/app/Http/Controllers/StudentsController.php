@@ -52,6 +52,13 @@ class StudentsController extends Controller
 
     $student->update($request->all());
     return redirect()->back();
+ }
+
+ public function destroy(Request $request, $id){
+   $student = Students::find($id);
+   $student->delete();
+   $students = Students::all(); 
+   return view('students.indexStudents', ['students' => $students]);
 
  }
 }

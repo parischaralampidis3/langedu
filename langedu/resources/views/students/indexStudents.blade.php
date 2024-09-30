@@ -6,6 +6,9 @@
     .green {
         background-color: rgb(34 197 94);
     }
+    .red{
+        background-color: rgb(220 38 38);
+    }
 </style>
 <x-app-layout>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -56,11 +59,27 @@
                                             <td class="p-4 py-5">{!! $student->lastname!!}</td>
                                             <td class="p-4 py-5">{!! $student->email!!}</td>
                                             <td class="p-4 py-5">{!! $student->formatted_dob!!}</td>
-                                            <td class="p-4 py-5 flex">
+                                            <td class="p-4  flex">
+                                                
+                                                <div class="mt-2">
                                                 <a class="sky text-white font-bold py-2 px-2 rounded"
                                                     href="{{route('students.showStudent', $student->id)}}">Show</a>
-                                                <a class="sky text-white font-bold py-2 ml-3 px-2 rounded"
+                                                </div>
+                                                <div class="mt-2">
+                                                    <a class="sky text-white ml-2  font-bold py-2 ml-3 px-2 rounded"
                                                     href="{{route('students.editStudent', $student->id)}}">Update</a>
+                                                </div>
+                                                <div>
+                                                <form action="{{route('students.delete', $student->id)}}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="red text-white font-bold ml-3 p-2  rounded">
+                                                        Delete
+                                                    </button>
+
+                                                </form>
+                                                </div>
+                                                
 
                                             </td>
                                         </tr>

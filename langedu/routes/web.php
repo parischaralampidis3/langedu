@@ -21,7 +21,7 @@ Route::get('/update/{student:id}',[StudentsController::class,'edit'])->name('stu
 Route::put('update/{student:id}',[StudentsController::class,'update'])->name('students.update');
 //---------------
 //delete routes
-Route::delete('/delete/{student:id}',[StudentsController::class,'delete'])->name('students.delete');
+Route::delete('/delete/{student:id}',[StudentsController::class,'destroy'])->name('students.delete');
 
 Route::get('/',function(){
     return view('auth.register');

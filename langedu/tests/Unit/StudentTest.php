@@ -95,6 +95,17 @@ class StudentTest extends TestCase
             'dob' => '2024-12-18',
             'id' => $student->id
         ]);
+    }
+
+    public function test_that_a_student_can_be_deleted(){
+        $student = Students::factory()->create(['firstname' => 'John']);
+        $this->assertDatabaseHas('students',[
+            'id' => $student->id,
+            'firstname'=>$student->firstname
+        ]);
+
+        $student->delete();
+        $this->assertDatabaseMissing('students',['id' => $student->id]);
 
     }
 }
