@@ -77,13 +77,14 @@
                                                             </button>
                                                         </form>
                                                     </div>
-
-                                                    <div class="mt-2">
-                                                        <label for="suspended">suspended</label>
-                                                        <input type="checkbox" id="suspended" name="suspended" value="1"
-                                                            {{$student->is_suspended ? 'checked' : ''}} />
-                                                    </div>
                                                 </td>
+                                                    <td>
+                                                        @if($student->is_suspended == '0')
+                                                        <p>Not suspended</p>
+                                                        @elseif($student->is_suspended == '1')
+                                                        <p>Suspended</p>
+                                                        @endif
+                                                    </td>
                                             </tr>
                                         @endforeach
                                     </tbody>

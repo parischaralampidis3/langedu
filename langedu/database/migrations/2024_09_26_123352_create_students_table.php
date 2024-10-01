@@ -18,7 +18,7 @@ return new class extends Migration
             $table -> string('firstname');
             $table -> string('lastname');
             $table -> string('email')->unique();
-            $table -> boolean('is_suspended')->default(True);
+            $table -> tinyInteger('is_suspended')->default(0);
             $table -> date('dob');
             $table->timestamps();
 

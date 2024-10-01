@@ -72,9 +72,10 @@
                                     <p>{{ $message }}</p>
                                 @enderror
                             </div>
-                            <div class="flex flex-col">
-                                <label for="suspended">Suspend Student</label>
-                                <input type="checkbox" id="suspended" name="suspended" value="1" {{$student -> suspended ? 'checked' : ''}} />
+                            <div class="mt-2">
+                                <label for="is_suspended">suspended</label>
+                                <input type="checkbox" id="is_suspended" name="is_suspended" value="1"
+                                    {{$student->is_suspended ? 'checked' : ''}} />
                             </div>
                             <br><br>
                             <button

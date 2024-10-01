@@ -17,6 +17,15 @@ use Illuminate\Http\Request;
      public function index(){
           $students = Students::where('user_id', auth()->id())->latest()->get();
         return view('students.indexStudents', ['students'=>$students]);
+
+        if($students){
+         if($students->is_suspended){
+            $students->is_suspended = True;
+         }else{
+            $students->isEmpty = False;
+         }
+         $students->save();
+        }
      }
      /**show method */
      public function show($id){
@@ -64,7 +73,17 @@ use Illuminate\Http\Request;
         'dob' => 'required|date',
     ]);
     $student->update($request->all());
+
+           if($student){
+         if($student->is_suspended){
+            $student->is_suspended = True;
+         }else{
+            $student->isEmpty = False;
+         }
+         $student->save();
+
     return redirect()->back();
+    }
     }
      public function destroy($id){
  $student = Students::find($id);
