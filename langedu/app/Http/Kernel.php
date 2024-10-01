@@ -28,7 +28,7 @@ class Kernel extends HttpKernel
      * Here we define middleware for web and API routes separately.
      */
     protected $middlewareGroups = [  
-      /**Middleware applied to regular web traffic */
+        /**Middleware applied to regular web traffic */
         'web' => [
             \App\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
@@ -36,7 +36,6 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
-            \App\Http\Middleware\CheckSuspended::class
         ],
         /**Middleware applied to API traffic **/
         'api' => [
@@ -49,10 +48,6 @@ class Kernel extends HttpKernel
      * Route-specific middleware.
      *
      * Here we define middleware that can be assigned individually to routes.
-     */
-    /**
-     * Summary of routeMiddleware
-     * These are specific rules that can be applied to individual routes.
      */
     protected $routeMiddleware = [
         'auth' => \App\Http\Middleware\Authenticate::class,
