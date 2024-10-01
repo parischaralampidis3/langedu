@@ -8,8 +8,11 @@ use App\Http\Controllers\StudentsController;
 //Dashboard routes
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified', 'is_active'])->name('dashboard');
+})->middleware(['auth', 'verified','is_suspended'])->name('dashboard');
 //Students routes
+Route::get('/suspended', function () {
+    return view('dashboard');  // Or whichever view you want to show
+})->name('is_suspended');
 //index routes
 Route::get('students',[StudentsController::class,'index'])->name('students.indexStudents');
 Route::get('student/{student:id}',[StudentsController::class,'show'])->name('students.showStudent');

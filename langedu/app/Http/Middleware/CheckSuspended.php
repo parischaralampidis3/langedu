@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class CheckStatus
+class CheckSuspended
 {
     /**
      * Handle an incoming request.
@@ -15,9 +15,9 @@ class CheckStatus
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(auth()->check()&& auth()->user()->suspended){
+        if(auth()->check()&& auth()->user()->is_suspended){
             auth()->logout();
-            return redirect()->route('login')->with('error', 'Your account is suspended.');
+            return redirect()->route('/dashboard')->with('error', 'Your account is suspended.');
         }
         return $next($request);
     }

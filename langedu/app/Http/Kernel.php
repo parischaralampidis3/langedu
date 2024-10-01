@@ -36,6 +36,7 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            \App\Http\Middleware\CheckSuspended::class
         ],
         /**Middleware applied to API traffic **/
         'api' => [
@@ -59,7 +60,7 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'suspended' => \App\Http\Middleware\CheckSuspended::class, // Custom middleware example
+        'is_suspended' => \App\Http\Middleware\CheckSuspended::class, // Custom middleware example
     ];
 
     /**

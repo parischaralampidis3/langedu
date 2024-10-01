@@ -17,7 +17,7 @@ class Students extends Model
                             'email', 
                             'dob',
                             'user_id',
-                            'suspended'
+                            'is_suspended'
                         ];
     
     public function user(){

@@ -81,7 +81,7 @@
                                                     <div class="mt-2">
                                                         <label for="suspended">suspended</label>
                                                         <input type="checkbox" id="suspended" name="suspended" value="1"
-                                                            {{$student->suspended ? 'checked' : ''}} />
+                                                            {{$student->is_suspended ? 'checked' : ''}} />
                                                     </div>
                                                 </td>
                                             </tr>
