@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Repositories\StudentsRepository;
 use Illuminate\Http\Request;
-use App\Models\Students;
+
 class StudentsController extends Controller
 {
  private $studentsRepository;
