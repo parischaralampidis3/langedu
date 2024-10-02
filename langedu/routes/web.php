@@ -1,54 +1,60 @@
 <?php
-
 use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\LessonController;
+use Illuminate\Support\Facades\Route;
 
-
-//Dashboard routes
+// Dashboard route
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
-//Students routes
-//index routes
-Route::get('students',[StudentsController::class,'index'])->name('students.indexStudents');
-Route::get('student/{student:id}',[StudentsController::class,'show'])->name('students.showStudent');
-//create routes
-Route::get('/create',[StudentsController::class,'create'])->name('students.createStudent');
-Route::post('create',[StudentsController::class,'store']);
-//update routes
-Route::get('/update/{student:id}',[StudentsController::class,'edit'])->name('students.editStudent');
-Route::put('update/{student:id}',[StudentsController::class,'update'])->name('students.update');
-//---------------
-//delete routes
-Route::delete('/delete/{student:id}',[StudentsController::class,'destroy'])->name('students.delete');
 
-// Lesson routes
-Route::get('lessons', [LessonController::class, 'index'])->name('lessons.indexLessons');
-Route::get('/{lesson:id}', [LessonController::class, 'show'])->name('lessons.showLesson');
+// Prefix all student-related routes
+Route::prefix('students')->group(function () {
+    // Create routes (define static routes first)
+    Route::get('/create', [StudentsController::class, 'create'])->name('students.createStudent');
+    Route::post('/create', [StudentsController::class, 'store']);
 
-// Create routes
-Route::get('/create', [LessonController::class, 'create'])->name('lessons.createLesson');
-Route::post('/create', [LessonController::class, 'store']);
+    // Index and Show routes
+    Route::get('/', [StudentsController::class, 'index'])->name('students.indexStudents');
+    Route::get('/{student:id}', [StudentsController::class, 'show'])->name('students.showStudent');
 
-// Update routes
-Route::get('/update/{lesson:id}', [LessonController::class, 'edit'])->name('lessons.editLesson');
-Route::put('/update/{lesson:id}', [LessonController::class, 'update'])->name('lessons.update');
+    // Update routes
+    Route::get('/update/{student:id}', [StudentsController::class, 'edit'])->name('students.editStudent');
+    Route::put('/update/{student:id}', [StudentsController::class, 'update'])->name('students.update');
 
-// Delete routes
-Route::delete('/delete/{lesson:id}', [LessonController::class, 'delete'])->name('lessons.delete');
+    // Delete route
+    Route::delete('/delete/{student:id}', [StudentsController::class, 'destroy'])->name('students.delete');
+});
 
+// Prefix all lesson-related routes
+Route::prefix('lessons')->group(function () {
+    // Create routes (define static routes first)
+    Route::get('/create', [LessonController::class, 'create'])->name('lessons.createLesson');
+    Route::post('/create', [LessonController::class, 'store']);
 
+    // Index and Show routes
+    Route::get('/', [LessonController::class, 'index'])->name('lessons.indexLessons');
+    Route::get('/{lesson:id}', [LessonController::class, 'show'])->name('lessons.showLesson');
 
-Route::get('/',function(){
+    // Update routes
+    Route::get('/update/{lesson:id}', [LessonController::class, 'edit'])->name('lessons.editLesson');
+    Route::put('/update/{lesson:id}', [LessonController::class, 'update'])->name('lessons.update');
+
+    // Delete route
+    Route::delete('/delete/{lesson:id}', [LessonController::class, 'delete'])->name('lessons.delete');
+});
+
+// Auth routes
+Route::get('/', function () {
     return view('auth.register');
 });
 
+// Profile-related routes with authentication middleware
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
