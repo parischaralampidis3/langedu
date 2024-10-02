@@ -9,6 +9,9 @@ class Lesson extends Model
 {
     use HasFactory;
 
+     protected $table = 'lesson';
+    protected $fillable = ['title', 'script'];
+
     public function students(){
         return $this->belongsToMany(Students::class,'students_lesson');
     }

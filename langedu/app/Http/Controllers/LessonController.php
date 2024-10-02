@@ -15,7 +15,7 @@ class LessonController extends Controller
 
     //show method
     public  function show($id){
-        $lesson = Lesson::findOne($id);
+        $lesson = Lesson::find($id);
         return view('lessons.showLesson',['lesson' => $lesson]);
     }
 
