@@ -23,7 +23,7 @@
                             <div class="flex justify-around items-center p-10">
 
                                 <a class="green mt-10 ml-10 bg-green-600 text-white font-bold py-2 px-2 hover:underline"
-                                    href="dashboard">Go at
+                                    href="/dashboard">Go at
                                     the main
                                     page</a>
                             </div>
@@ -32,7 +32,7 @@
                                 <h1 class="text-xl mt-5  font-bold">Lessons List</h1>
                                 <div class="flex flex-col">
                                     <a class="green text-white font-bold py-2 px-2 rounded"
-                                        href="{{route('lessons.createLesson')}}">Create Student</a>
+                                        href="{{route('lessons.createLesson')}}">Create Lesson</a>
                                 </div>
                             </div>
                             <br /><br />
@@ -50,29 +50,6 @@
                                             <tr class="hover:bg-slate-50 border-b border-slate-200">
                                                 <td class="p-4 py-5">{!! $lesson->title!!}</td>
                                                 <td class="p-4 py-5">{!! $lesson->description !!}</td>
-
-                                                <td class="p-4  flex">
-
-                                                    <div class="mt-2">
-                                                        <a class="sky text-white font-bold py-2 px-2 rounded"
-                                                            href="{{route('lessons.showLesson', $lesson->id)}}">Show</a>
-                                                    </div>
-                                                    <div class="mt-2">
-                                                        <a class="sky text-white ml-2  font-bold py-2 ml-3 px-2 rounded"
-                                                            href="{{route('lessons.editLesson', $lesson->id)}}">Update</a>
-                                                    </div>
-                                                    <div>
-                                                        <form action="{{route('lessons.deleteLesson', $lesson->id)}}"
-                                                            method="POST">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button class="red text-white font-bold ml-3 p-2  rounded">
-                                                                Delete
-                                                            </button>
-
-                                                        </form>
-                                                    </div>
-                                                </td>
                                             </tr>
                                         @endforeach
                                     </tbody>
