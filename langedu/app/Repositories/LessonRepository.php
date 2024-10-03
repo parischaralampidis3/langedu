@@ -4,6 +4,8 @@ namespace App\Repositories;
 use App\Models\Lesson;
 use Illuminate\Http\Request;
 
+
+
 /**
  * Class LessonRepository
  */
@@ -13,51 +15,51 @@ use Illuminate\Http\Request;
      * @return string
      */
 
-    public function index(){
+    public function indexLessons(){
         $lessons = Lesson::latest()->get();
         return view('lessons.indexLessons',['lessons' => $lessons]);
     } 
 
-    public function show($id){
+    public function showLesson($id){
           $lesson = Lesson::find($id);
         return view('lessons.showLesson',['lesson' => $lesson]);
     }
 
-    public function create(){
+    public function createLesson(){
         return view('lessons.createLesson');
     }
      
-    public function store(Request $request){
+    public function storeLesson(Request $request){
            $request->validate([
-            'title'=> 'required|max_length:255',
-            'script'=>'required|max_length:255'
+            'title'=> 'required|max:255',
+            'description'=>'required|max:255'
         ]);
 
         Lesson::create([
             'title'=>$request->input('title'),
-            'script'=>$request->input('script')
+            'description'=>$request->input('description')
         ]);
 
         return redirect()->back();
     }
 
-    public function edit($id){
+    public function editLesson($id){
           $editLesson = Lesson::findOrFail($id);
         return view('lessons.editLesson',['editLesson'=>$editLesson]);
     }
 
-    public function update(Request $request,$id){
+    public function updateLesson(Request $request,$id){
         $updateLesson = Lesson::find($id);
 
         $request -> validate([
-            'title'=> 'required|max_length:255',
-            'script'=>'required|max_length:255'
+            'title'=> 'required|max:255',
+            'description'=>'required|max:255'
         ]);
         $updateLesson->update($request->all());
         return redirect()->back();
     }
 
-    public function destroy($id){
+    public function destroyLesson($id){
   $destroyLesson = Lesson::findOrFail($id);
         $destroyLesson.delete();
         return redirect()->back();

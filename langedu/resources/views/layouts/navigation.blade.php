@@ -27,6 +27,12 @@
                     <x-nav-link :href="route('students.createStudent')" :active="request()->routeIs('students.createStudent')">
                         {{ __('Create Student') }}
                     </x-nav-link>
+
+                           <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('lessons.createLesson')" :active="request()->routeIs('lessons.createLesson')">
+                        {{ __('Create Lesson') }}
+                    </x-nav-link>
+                </div>
                 </div>
             </div>
 
@@ -78,10 +84,23 @@
 
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-        <div class="pt-2 pb-3 space-y-1">
+        <div class="flex flex-col ml-5 pt-2 pb-3 space-x-8 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+
+                <x-nav-link :href="route('students.indexStudents')" :active="request()->routeIs('students.indexStudents')">
+                        {{ __('Students List') }}
+                    </x-nav-link>
+
+                       <x-nav-link :href="route('students.createStudent')" :active="request()->routeIs('students.createStudent')">
+                        {{ __('Create Student') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('lessons.createLesson')" :active="request()->routeIs('lessons.createLesson')">
+                        {{ __('Create Lesson') }}
+                    </x-nav-link>
+              
         </div>
 
         <!-- Responsive Settings Options -->

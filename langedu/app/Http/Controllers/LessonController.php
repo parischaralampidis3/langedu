@@ -14,42 +14,42 @@ class LessonController extends Controller
         $this -> lessonRepository = $lessonRepository;
     }
     //index method
-    public function index(){
-    $lessons = $this->lessonRepository->index();
+    public function indexLessons(){
+    $lessons = $this->lessonRepository->indexLessons();
     return $lessons;
     }
 
     //show method
-    public  function show($id){
-      $lesson = $this->lessonRepository->show($id);
+    public  function showLesson($id){
+      $lesson = $this->lessonRepository->showLesson($id);
       return $lesson;
     }
 
     //create method
-    public function create(){
-        $createLesson = $this->lessonRepository->create();
+    public function createLesson(){
+        $createLesson = $this->lessonRepository->createLesson();
         return $createLesson;
     }
 
     //store method
-    public function store(Request $request){
-     $storeLesson = $this->lessonRepository->store($request);
+    public function storeLesson(Request $request){
+     $storeLesson = $this->lessonRepository->storeLesson($request);
      return $storeLesson;
     }
     //edit method
-    public function edit($id){
-      $editLesson = $this-> lessonRepository->edit($id);
+    public function editLesson($id){
+      $editLesson = $this-> lessonRepository->editLesson($id);
       return $editLesson;
     }
 
-    public function update(Request $request, $id){
-        $updateLesson = $this-> lessonRepository->update( $request, $id);
+    public function updateLesson(Request $request, $id){
+        $updateLesson = $this-> lessonRepository->updateLesson( $request, $id);
         return $updateLesson;
     }
     //destroy method
 
-    public function destroy($id){
-      $destroyLesson = $this->lessonRepository->destroy($id);
+    public function destroyLesson($id){
+      $destroyLesson = $this->lessonRepository->destroyLesson($id);
       return $destroyLesson;
     }
 

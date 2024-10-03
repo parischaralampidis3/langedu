@@ -3,12 +3,21 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentsController;
+use App\Http\Controllers\LessonController;
 
 
 //Dashboard routes
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+//index routes
+Route::get('lessons',[LessonController::class,'indexLessons'])->name('lessons.indexLessons');
+Route::get('lesson/{lesson:id}',[StudentsController::class,'showLesson'])->name('lessons.showLesson');
+//create routes
+Route::get('/createLesson',[LessonController::class,'createLesson'])->name('lessons.createLesson');
+Route::post('createLesson',[LessonController::class,'storeLesson']); 
+
 //Students routes
 //index routes
 Route::get('students',[StudentsController::class,'index'])->name('students.indexStudents');
@@ -23,6 +32,10 @@ Route::put('update/{student:id}',[StudentsController::class,'update'])->name('st
 //delete routes
 Route::delete('/delete/{student:id}',[StudentsController::class,'destroy'])->name('students.delete');
 
+
+
+
+
 Route::get('/',function(){
     return view('auth.register');
 });
@@ -32,5 +45,5 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-Route::get('/dashboard', [StudentsController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+
 require __DIR__.'/auth.php';
