@@ -24,18 +24,10 @@
                 </div>
 
                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('students.createStudent')" :active="request()->routeIs('students.createStudent')">
-                        {{ __('Create Student') }}
-                    </x-nav-link>
+                
                       <x-nav-link :href="route('lessons.indexLessons')" :active="request()->routeIs('lessons.indexLessons')">
                         {{ __('Lessons List') }}
                     </x-nav-link>
-
-                           <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('lessons.createLesson')" :active="request()->routeIs('lessons.createLesson')">
-                        {{ __('Create Lesson') }}
-                    </x-nav-link>
-                </div>
                 </div>
             </div>
 
