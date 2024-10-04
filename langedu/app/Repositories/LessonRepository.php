@@ -59,9 +59,10 @@ use Illuminate\Http\Request;
     }
 
     public function destroyLesson($id){
-  $destroyLesson = Lesson::findOrFail($id);
-        $destroyLesson.delete();
-        return redirect()->back();
+  $lesson = Lesson::find($id);
+        $lesson->delete();
+        $lessons = Lesson::all();
+        return view('lessons.indexLessons',['lessons'=>$lessons]);
     }
 
  }

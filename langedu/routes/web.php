@@ -13,16 +13,18 @@ Route::get('/dashboard', function () {
 
 //index routes
 Route::get('lessons',[LessonController::class,'indexLessons'])->name('lessons.indexLessons');
-Route::get('lesson/{lesson:id}',[StudentsController::class,'showLesson'])->name('lessons.showLesson');
+Route::get('lesson/{lesson:id}',[LessonController::class,'showLesson'])->name('lessons.showLesson');
 //create routes
 Route::get('/createLesson',[LessonController::class,'createLesson'])->name('lessons.createLesson');
 Route::post('createLesson',[LessonController::class,'storeLesson']);
 
-//create routes
+//update routes
 Route::get('/editLesson/{lesson:id}',[LessonController::class,'editLesson'])->name('lessons.editLesson');
 Route::put('updateLesson/{lesson:id}',[LessonController::class,'updateLesson'])->name('lessons.update');
 
-
+//delete routes
+//delete routes
+Route::delete('/destroyLesson/{student:id}',[LessonController::class,'destroyLesson'])->name('lessons.destroyLesson');
 
 //Students routes
 //index routes
