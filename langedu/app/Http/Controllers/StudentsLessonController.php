@@ -26,8 +26,5 @@ class StudentsLessonController extends Controller
 
         return redirect()->back()->with('success','Student has Enrolled Successfully');
 
-
-        
-
     }  //
 }
