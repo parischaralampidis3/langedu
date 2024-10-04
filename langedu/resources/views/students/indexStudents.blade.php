@@ -31,6 +31,7 @@
                             <div class="flex flex-row mt-5 justify-between">
                                 <h1 class="text-xl mt-5  font-bold">Students List</h1>
                                 <div class="flex flex-col">
+<<<<<<< HEAD
 
 
                                     <a class="green text-white font-bold py-2 px-2 rounded"
@@ -40,6 +41,14 @@
                             </div>
                             <br /><br />
 
+=======
+                                    <a class="green text-white font-bold py-2 px-2 rounded"
+                                        href="{{route('students.createStudent')}}">Create Student</a>
+                                </div>
+                            </div>
+                            <br /><br />
+                            
+>>>>>>> suspendStudent
                             <div class="inline-block min-w-full shadow-md rounded-lg overflow-hidden">
                                 <table class="min-w-full leading-normal">
                                     <thead>
@@ -78,12 +87,25 @@
                                                             <button class="red text-white font-bold ml-3 p-2  rounded">
                                                                 Delete
                                                             </button>
+<<<<<<< HEAD
 
                                                         </form>
                                                     </div>
 
 
                                                 </td>
+=======
+                                                        </form>
+                                                    </div>
+                                                </td>
+                                                    <td>
+                                                        @if($student->is_suspended == '0')
+                                                        <p>Not suspended</p>
+                                                        @elseif($student->is_suspended == '1')
+                                                        <p>Suspended</p>
+                                                        @endif
+                                                    </td>
+>>>>>>> suspendStudent
                                             </tr>
                                         @endforeach
                                     </tbody>
