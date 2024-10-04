@@ -44,18 +44,18 @@ use Illuminate\Http\Request;
     }
 
     public function editLesson($id){
-          $editLesson = Lesson::findOrFail($id);
-        return view('lessons.editLesson',['editLesson'=>$editLesson]);
+          $lesson = Lesson::findOrFail($id);
+        return view('lessons.editLesson',['lesson'=>$lesson]);
     }
 
     public function updateLesson(Request $request,$id){
-        $updateLesson = Lesson::find($id);
+        $lesson = Lesson::find($id);
 
         $request -> validate([
             'title'=> 'required|max:255',
             'description'=>'required|max:255'
         ]);
-        $updateLesson->update($request->all());
+        $lesson->update($request->all());
         return redirect()->back();
     }
 

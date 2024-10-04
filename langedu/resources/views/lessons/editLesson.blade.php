@@ -21,7 +21,8 @@
                     </div>
                     <br><br>
                     <div class="flex flex-column justify-center items-center">
-                        <form method="POST" action="{{ route('students.update', $student->id) }}">
+                        <form method="POST" action="{{ route('lessons.update', $lesson->id) }}">
+                    
 
                             @csrf
                             @method('PUT')

@@ -16,7 +16,12 @@ Route::get('lessons',[LessonController::class,'indexLessons'])->name('lessons.in
 Route::get('lesson/{lesson:id}',[StudentsController::class,'showLesson'])->name('lessons.showLesson');
 //create routes
 Route::get('/createLesson',[LessonController::class,'createLesson'])->name('lessons.createLesson');
-Route::post('createLesson',[LessonController::class,'storeLesson']); 
+Route::post('createLesson',[LessonController::class,'storeLesson']);
+
+//create routes
+Route::get('/editLesson/{lesson:id}',[LessonController::class,'editLesson'])->name('lessons.editLesson');
+Route::post('updateLesson/{lesson:id}',[LessonController::class,'updateLesson'])->name('lessons.update');
+
 
 //Students routes
 //index routes
