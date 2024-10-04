@@ -2,7 +2,7 @@
 
 namespace App\Models;
 use App\Models\User;
-
+use App\Models\Lesson;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
@@ -12,6 +12,10 @@ class Students extends Model
     use HasFactory;
   
     protected $fillable = ['username', 'firstname', 'lastname', 'email', 'dob','user_id'];
+
+    public function lessons(){
+        return $this->belongsToMany(Lesson::class,'students_lessons');
+    }
     
     public function user(){
      return $this->belongsTo(User::class);
