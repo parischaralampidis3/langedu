@@ -50,7 +50,15 @@
                                             <tr class="hover:bg-slate-50 border-b border-slate-200">
                                                 <td class="p-4 py-5">{!! $lesson->title!!}</td>
                                                 <td class="p-4 py-5">{!! $lesson->description !!}</td>
+                                                <td class="p-4 py-5">
+                                                   <div class="mt-2">
+                                                        <a class="sky text-white ml-2  font-bold py-2 ml-3 px-2 rounded"
+                                                            href="{{route('lessons.editLesson', $lesson->id)}}">Update</a>
+                                                </div>
+                                                </td>
                                             </tr>
+
+                                            
                                         @endforeach
                                     </tbody>
                                 </table>

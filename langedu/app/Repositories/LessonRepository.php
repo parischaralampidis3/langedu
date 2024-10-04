@@ -4,8 +4,6 @@ namespace App\Repositories;
 use App\Models\Lesson;
 use Illuminate\Http\Request;
 
-
-
 /**
  * Class LessonRepository
  */
@@ -36,11 +34,12 @@ use Illuminate\Http\Request;
         ]);
 
         Lesson::create([
+            
             'title'=>$request->input('title'),
             'description'=>$request->input('description')
         ]);
 
-        return redirect()->back();
+        return redirect('dashboard');
     }
 
     public function editLesson($id){

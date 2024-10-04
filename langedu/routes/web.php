@@ -20,7 +20,8 @@ Route::post('createLesson',[LessonController::class,'storeLesson']);
 
 //create routes
 Route::get('/editLesson/{lesson:id}',[LessonController::class,'editLesson'])->name('lessons.editLesson');
-Route::post('updateLesson/{lesson:id}',[LessonController::class,'updateLesson'])->name('lessons.update');
+Route::put('updateLesson/{lesson:id}',[LessonController::class,'updateLesson'])->name('lessons.update');
+
 
 
 //Students routes

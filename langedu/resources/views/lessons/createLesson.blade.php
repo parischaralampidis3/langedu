@@ -27,7 +27,7 @@
                         </div>
                         <br><br>
                     <div class="flex flex-column justify-center items-center mt-10">
-                        <form method="POST" action="{{url('/create')}}">
+                        <form method="POST" action="{{url('/createLesson')}}">
                             @csrf
                             <div class="flex flex-col">
                                 <label class="font-bold" for="title">Title</label>
