@@ -18,13 +18,9 @@ return new class extends Migration
             $table -> string('firstname');
             $table -> string('lastname');
             $table -> string('email')->unique();
-<<<<<<< HEAD
-=======
             $table -> tinyInteger('is_suspended')->default(0);
->>>>>>> suspendStudent
             $table -> date('dob');
             $table->timestamps();
-
         });
     }
 

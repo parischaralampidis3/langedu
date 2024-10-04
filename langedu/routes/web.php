@@ -9,7 +9,7 @@ use App\Http\Controllers\LessonController;
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
-<<<<<<< HEAD
+
 
 //index routes
 Route::get('lessons',[LessonController::class,'indexLessons'])->name('lessons.indexLessons');
@@ -43,21 +43,8 @@ Route::delete('/delete/{student:id}',[StudentsController::class,'destroy'])->nam
 
 
 
-
-Route::get('/',function(){
-=======
-
-// Students routes
-Route::get('students', [StudentsController::class, 'index'])->name('students.indexStudents');
-Route::get('student/{student:id}', [StudentsController::class, 'show'])->name('students.showStudent');
-Route::get('/create', [StudentsController::class, 'create'])->name('students.createStudent');
-Route::post('create', [StudentsController::class, 'store']);
-Route::get('/update/{student:id}', [StudentsController::class, 'edit'])->name('students.editStudent');
-Route::put('update/{student:id}', [StudentsController::class, 'update'])->name('students.update');
-Route::delete('/delete/{student:id}', [StudentsController::class, 'destroy'])->name('students.delete');
-
 Route::get('/', function () {
->>>>>>> suspendStudent
+
     return view('auth.register');
 });
 
