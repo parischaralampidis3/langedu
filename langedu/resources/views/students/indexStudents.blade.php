@@ -14,7 +14,7 @@
 <x-app-layout>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+          <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
 
                 <section class="flex justify-around mx-5 px-0 py-6"> <!-- Added margin-x and padding-x -->
@@ -23,7 +23,7 @@
                             <div class="flex justify-around items-center p-10">
 
                                 <a class="green mt-10 ml-10 bg-green-600 text-white font-bold py-2 px-2 hover:underline"
-                                    href="dashboard">Go at
+                                    href="/dashboard">Go at
                                     the main
                                     page</a>
                             </div>
@@ -31,24 +31,13 @@
                             <div class="flex flex-row mt-5 justify-between">
                                 <h1 class="text-xl mt-5  font-bold">Students List</h1>
                                 <div class="flex flex-col">
-<<<<<<< HEAD
-
-
                                     <a class="green text-white font-bold py-2 px-2 rounded"
-                                        href="{{route('students.createStudent')}}">Create Student</a>
-                                </div>
-
-                            </div>
-                            <br /><br />
-
-=======
-                                    <a class="green text-white font-bold py-2 px-2 rounded"
-                                        href="{{route('students.createStudent')}}">Create Student</a>
+                                        href="{{route('students.createStudent')}}">Create Students</a>
                                 </div>
                             </div>
                             <br /><br />
-                            
->>>>>>> suspendStudent
+       
+
                             <div class="inline-block min-w-full shadow-md rounded-lg overflow-hidden">
                                 <table class="min-w-full leading-normal">
                                     <thead>
@@ -87,14 +76,14 @@
                                                             <button class="red text-white font-bold ml-3 p-2  rounded">
                                                                 Delete
                                                             </button>
-<<<<<<< HEAD
+
 
                                                         </form>
                                                     </div>
 
 
                                                 </td>
-=======
+
                                                         </form>
                                                     </div>
                                                 </td>
@@ -105,7 +94,7 @@
                                                         <p>Suspended</p>
                                                         @endif
                                                     </td>
->>>>>>> suspendStudent
+
                                             </tr>
                                         @endforeach
                                     </tbody>
