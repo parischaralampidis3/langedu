@@ -44,6 +44,9 @@ Route::put('/students/{id}/toggle-suspend', [StudentsController::class, 'toggleS
 //delete routes
 Route::delete('/delete/{student:id}',[StudentsController::class,'destroy'])->name('students.delete');
 
+//restore routes
+Route::post('/restore/{student:id}/restore',[StudentsController::class,'restore'])->name('students.restore');
+
 //archive routes
 Route::get('archive',[StudentsController::class,'archive'])->name('students.archiveStudent');
 
