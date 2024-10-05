@@ -19,6 +19,7 @@ return new class extends Migration
             $table -> string('lastname');
             $table -> string('email')->unique();
             $table -> tinyInteger('is_suspended')->default(0);
+            $table -> softDeletes();
             $table -> date('dob');
             $table->timestamps();
         });

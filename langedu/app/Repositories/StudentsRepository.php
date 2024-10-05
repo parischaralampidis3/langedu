@@ -94,9 +94,15 @@ use Illuminate\Http\Request;
  }
 
 
-
      public function destroy($id){
- $student = Students::find($id);
+ //$student = Students::find($id);
+   $student = Students::withTrashed()->find($id);
+   
+   if($student->trashed()){
+      $student -> forceDelete();
+      return redirect('dashboard');
+   }
+   
    $student->delete();
    $students = Students::all(); 
    return view('students.indexStudents', ['students' => $students]);
