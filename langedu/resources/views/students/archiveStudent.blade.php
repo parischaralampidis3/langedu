@@ -60,7 +60,15 @@
                                                             <td class="p-4 py-5">{!! $student->formatted_dob!!}</td>
                                                             <td class="p-4  flex">
 
-                                                                <div>
+                                                                <div>       
+                                                                       <form action="{{route('students.restore', $student->id)}}"
+                                                                        method="POST">
+                                                                        @csrf
+                                                                        <button class="red text-white font-bold ml-3 p-2  rounded">
+                                                                            Restore
+                                                                        </button>
+                                                                    </form>
+                                                                    
                                                                     <form action="{{route('students.delete', $student->id)}}"
                                                                         method="POST">
                                                                         @csrf
@@ -69,6 +77,10 @@
                                                                             Delete
                                                                         </button>
                                                                     </form>
+
+                                                             
+
+
                                                                 </div>
                                                             </td>
                                                             </form>

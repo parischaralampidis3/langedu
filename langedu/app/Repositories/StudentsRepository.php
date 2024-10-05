@@ -128,7 +128,7 @@ class StudentsRepository
    public function restore($id){
       $student = Students::withTrashed()->find($id);
       $student->restore();
-      redirect('dashboard');
+      return redirect('dashboard');
 
    }
    

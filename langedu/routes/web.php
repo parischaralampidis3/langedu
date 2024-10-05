@@ -40,15 +40,17 @@ Route::put('update/{student:id}',[StudentsController::class,'update'])->name('st
 
 
 Route::put('/students/{id}/toggle-suspend', [StudentsController::class, 'toggleSuspend'])->name('students.toggleSuspend');
+
+//archive routes
+Route::get('archive',[StudentsController::class,'archive'])->name('students.archiveStudent');
 //---------------
 //delete routes
 Route::delete('/delete/{student:id}',[StudentsController::class,'destroy'])->name('students.delete');
 
 //restore routes
-Route::post('/restore/{student:id}/restore',[StudentsController::class,'restore'])->name('students.restore');
+Route::post('/restore/{student:id}',[StudentsController::class,'restore'])->name('students.restore');
 
-//archive routes
-Route::get('archive',[StudentsController::class,'archive'])->name('students.archiveStudent');
+
 
 
 
