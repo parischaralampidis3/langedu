@@ -85,6 +85,16 @@ use Illuminate\Http\Request;
     return redirect()->back();
     }
     }
+
+ public function toggleSuspend(Request $request, $id){
+  $student= Students::findOrFail($id);
+ $student->is_suspended = !$student->is_suspended;
+  $student->save();
+    return redirect()->route('students.indexStudents')->with('success', 'Student suspension status updated successfully');
+ }
+
+
+
      public function destroy($id){
  $student = Students::find($id);
    $student->delete();

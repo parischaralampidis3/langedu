@@ -39,6 +39,10 @@ class StudentsController extends Controller
    return $updateStudent;
  }
 
+public function toggleSuspend(Request $request, $id){
+  $toggleSuspend = $this->studentsRepository->toggleSuspend($request,$id);
+  return $toggleSuspend;
+}
  public function destroy($id){
     $destroyStudent = $this->studentsRepository->destroy($id);
     return $destroyStudent;

@@ -33,9 +33,13 @@ Route::get('student/{student:id}',[StudentsController::class,'show'])->name('stu
 //create routes
 Route::get('/create',[StudentsController::class,'create'])->middleware('auth')->name('students.createStudent');
 Route::post('create',[StudentsController::class,'store']);
+
 //update routes
 Route::get('/update/{student:id}',[StudentsController::class,'edit'])->name('students.editStudent');
 Route::put('update/{student:id}',[StudentsController::class,'update'])->name('students.update');
+
+
+Route::put('/students/{id}/toggle-suspend', [StudentsController::class, 'toggleSuspend'])->name('students.toggleSuspend');
 //---------------
 //delete routes
 Route::delete('/delete/{student:id}',[StudentsController::class,'destroy'])->name('students.delete');

@@ -10,11 +10,16 @@
     .red {
         background-color: rgb(220 38 38);
     }
+   
+    .suspended {
+        opacity: 0.5;
+    }
+
 </style>
 <x-app-layout>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <div class="py-12">
-          <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
 
                 <section class="flex justify-around mx-5 px-0 py-6"> <!-- Added margin-x and padding-x -->
@@ -36,8 +41,6 @@
                                 </div>
                             </div>
                             <br /><br />
-       
-
                             <div class="inline-block min-w-full shadow-md rounded-lg overflow-hidden">
                                 <table class="min-w-full leading-normal">
                                     <thead>
@@ -52,55 +55,65 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($students as $student)
-                                            <tr class="hover:bg-slate-50 border-b border-slate-200">
-                                                <td class="p-4 py-5">{!! $student->username!!}</td>
-                                                <td class="p-4 py-5">{!! $student->firstname !!}</td>
-                                                <td class="p-4 py-5">{!! $student->lastname!!}</td>
-                                                <td class="p-4 py-5">{!! $student->email!!}</td>
-                                                <td class="p-4 py-5">{!! $student->formatted_dob!!}</td>
-                                                <td class="p-4  flex">
-
+                                       
+                                                        <tr class="hover:bg-slate-50 border-b border-slate-200  {{ $student->is_suspended ? 'suspended' : '' }}">
+                                                            <td class="p-4 py-5">{!! $student->username!!}</td>
+                                                            <td class="p-4 py-5">{!! $student->firstname !!}</td>
+                                                            <td class="p-4 py-5">{!! $student->lastname!!}</td>
+                                                            <td class="p-4 py-5">{!! $student->email!!}</td>
+                                                            <td class="p-4 py-5">{!! $student->formatted_dob!!}</td>
+                                                            <td class="p-4  flex">
+                                                                <div class="mt-2">
+                                                                    <a class="sky text-white font-bold py-2 px-2 rounded"
+                                                                        href="{{route('students.showStudent', $student->id)}}">Show</a>
+                                                                </div>
+                                                                <div class="mt-2">
+                                                                    <a class="sky text-white ml-2  font-bold py-2 ml-3 px-2 rounded"
+                                                                        href="{{route('students.editStudent', $student->id)}}">Update</a>
+                                                                </div>
+                                                                <div>
+                                                                    <form action="{{route('students.delete', $student->id)}}"
+                                                                        method="POST">
+                                                                        @csrf
+                                                                        @method('DELETE')
+                                                                        <button class="red text-white font-bold ml-3 p-2  rounded">
+                                                                            Delete
+                                                                        </button>
+                                                                    </form>
+                                                                </div>
+                                                            </td>
+                                                            </form>
+                                            </div>
+                                            </td>
+                                                <td>
+                                            
                                                     <div class="mt-2">
-                                                        <a class="sky text-white font-bold py-2 px-2 rounded"
-                                                            href="{{route('students.showStudent', $student->id)}}">Show</a>
-                                                    </div>
-                                                    <div class="mt-2">
-                                                        <a class="sky text-white ml-2  font-bold py-2 ml-3 px-2 rounded"
-                                                            href="{{route('students.editStudent', $student->id)}}">Update</a>
-                                                    </div>
-                                                    <div>
-                                                        <form action="{{route('students.delete', $student->id)}}"
-                                                            method="POST">
+                                                        <form action="{{route('students.toggleSuspend',$student->id)}}" method="POST">
                                                             @csrf
-                                                            @method('DELETE')
-                                                            <button class="red text-white font-bold ml-3 p-2  rounded">
-                                                                Delete
-                                                            </button>
-
-
+                                                            @method('PUT')
+                                                            
+                                                        <label for="is_suspended"></label>
+                                                        <input type="hidden" name="is_suspended" value="0">
+                                                        <div class="flex items-center">
+                                                        <input class="mt-10" type="checkbox" id="is_suspended" name="is_suspended" value="1"
+                                                             onchange="this.form.submit()" {{ $student->is_suspended ? 'checked' : '' }} />
+                                                             
+                                                          <p style="padding:20px;">{{ $student->is_suspended ? 'suspended user' : 'not suspend user' }}</p>
+                                                          </div>
                                                         </form>
-                                                    </div>
 
-
+                                                       
+                                                    </div> 
+                                                  
                                                 </td>
-
-                                                        </form>
-                                                    </div>
-                                                </td>
-                                                    <td>
-                                                        @if($student->is_suspended == '0')
-                                                        <p>Not suspended</p>
-                                                        @elseif($student->is_suspended == '1')
-                                                        <p>Suspended</p>
-                                                        @endif
-                                                    </td>
 
                                             </tr>
+                                            
                                         @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
+                            </tbody>
+                            </table>
                         </div>
+                    </div>
                 </section>
 
             </div>
