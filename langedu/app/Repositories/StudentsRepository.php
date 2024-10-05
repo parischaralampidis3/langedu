@@ -93,7 +93,7 @@ use Illuminate\Http\Request;
     return redirect()->route('students.indexStudents')->with('success', 'Student suspension status updated successfully');
  }
 
-
+//Apply soft deletes for students
      public function destroy($id){
  //$student = Students::find($id);
    $student = Students::withTrashed()->find($id);
