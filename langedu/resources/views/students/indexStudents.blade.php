@@ -35,10 +35,20 @@
                             <br><br>
                             <div class="flex flex-row mt-5 justify-between">
                                 <h1 class="text-xl mt-5  font-bold">Students List</h1>
-                                <div class="flex flex-col">
+                                <div class="flex flex-row">
+                                    <div>
                                     <a class="green text-white font-bold py-2 px-2 rounded"
                                         href="{{route('students.createStudent')}}">Create Students</a>
+                                     </div>
+                                     <br><br>
+                                     <div style="margin-left:20px;">
+                                         <a class="sky text-white font-bold py-2 px-2 rounded"
+                                        href="{{route('students.archiveStudent')}}">Archive Students</a>
+                                    </div>
                                 </div>
+                               
+                                      
+                               
                             </div>
                             <br /><br />
                             <div class="inline-block min-w-full shadow-md rounded-lg overflow-hidden">
