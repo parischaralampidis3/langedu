@@ -124,6 +124,13 @@ class StudentsRepository
       ->get();
       return view('students.archiveStudent',compact('students'));
    }
+
+   public function restore($id){
+      $student = Students::withTrashed()->find($id);
+      $student->restore();
+      redirect('dashboard');
+
+   }
    
 }
 

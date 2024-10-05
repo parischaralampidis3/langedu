@@ -62,4 +62,9 @@ class StudentsController extends Controller
     $archiveStudent = $this->studentsRepository->archive();
     return $archiveStudent;
   }
+
+  public function restore($id){
+    $restoreStudent = $this->studentsRepository->restore($id);
+    return $restoreStudent;
+  }
 }
