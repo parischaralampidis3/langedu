@@ -26,8 +26,46 @@
                                 page</a>
                         </div>
                         <br><br>
-               
 
+                      
+                            <h1>Enroll Students</h1>
+                            <div class="flex flex-col justify-center items-center mt-10">
+                                <form method="POST" action="{{url('students.enrollStudents')}}">
+                                    @csrf
+
+                                         <div class="flex flex-col">
+                                            <label class="font-bold" for="student_id">Student</label>
+                                            <select id="student_id" name="student_id" class="w-full p-2 border rounded">
+                                                <option value="">--Choose a student--</option>
+                                                @foreach ($students as $student )
+                                                        <option value="{{$student->id}}">{{$student->firstname}} - {{$student->lastname}}</option>
+                                                @endforeach
+                                            </select>
+                                            @error('student_id')
+                                                <p>{{$message}}</p>
+                                            @enderror
+                                            </div>
+
+                                            <!--Lesson-->
+                                            <div class="flex flex-col">
+                                                <label class="font-bold" for="lesson_id">Lesson</label>
+                                                <select id="lesson_id" name="lesson_id" class="w-full p-2 border rounded">
+                                                    <option value="">--Choose a lesson--</option>
+                                                    @foreach ($lessons as $lesson )
+                                                        <option value="{{$lesson->id}}">{{$lesson->title}}</option>
+                                                    @endforeach           
+                                                </select>
+                                                @error('lesson_id')
+                                                    <p>{{$message}}</p>
+                                                @enderror
+                                            </div>
+                                            <br><br>
+                                            <b type="submit" class="green mt-10 ml-10 bg-green-600 text-white font-bold py-2 px-2 hover:underline">Enroll Student
+                                            </button>
+
+                                </form>
+                            
+                            </div>
                 </div>
             </div>
         </div>

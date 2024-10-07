@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\LessonController;
+use App\Http\Controllers\StudentsLessonController;
 
 //Dashboard routes
 Route::get('/dashboard', function () {
@@ -50,7 +51,8 @@ Route::delete('/delete/{student:id}',[StudentsController::class,'destroy'])->nam
 //restore routes
 Route::post('/restore/{student:id}',[StudentsController::class,'restore'])->name('students.restore');
 
-
+//enroll students at lessons
+Route::post('/enroll/{student:id}',[StudentsLessonController::class,'enroll'])->name('students.enroll');
 
 
 
