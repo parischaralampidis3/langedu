@@ -13,7 +13,7 @@ class StudentsLessonController extends Controller
         return view('students.enrollStudent',['enrollStudents' => $enrollStudents]);
     }
 
-
+  
 
     public function store(Request $request){
         $validated = $request->validate([
