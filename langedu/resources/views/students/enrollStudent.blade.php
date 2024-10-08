@@ -30,7 +30,7 @@
                       
                             <h1>Enroll Students</h1>
                             <div class="flex flex-col justify-center items-center mt-10">
-                                <form method="POST" action="{{url('students.enrollStudents')}}">
+                                <form method="POST" action="{{url('/createEnrollment')}}">
                                     @csrf
 
                                          <div class="flex flex-col">

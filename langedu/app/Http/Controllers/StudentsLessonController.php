@@ -21,11 +21,11 @@ class StudentsLessonController extends Controller
         return view('students.enrollStudent', compact('students', 'lessons'));
     }
 
-    public function store(Request $request)
+    public function storeEnrollment(Request $request)
     {
         $validated = $request->validate([
-            'student_id' => 'required,max:255',
-            'lesson_id' => 'required,max:255'
+            'student_id' => 'required|max:255',
+            'lesson_id' => 'required|max:255'
         ]);
 
         $student = Students::find($validated['student_id']);
@@ -39,5 +39,5 @@ class StudentsLessonController extends Controller
 
         return redirect()->back()->with('success', 'Student has Enrolled Successfully');
 
-    }  //
+    }  
 }

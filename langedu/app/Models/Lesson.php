@@ -15,6 +15,7 @@ class Lesson extends Model
 
 
     public function students(){
-        return $this->belongsToMany(Students::class,'students_lessons');
+        return $this->belongsToMany(Students::class,'students_lessons','lesson_id','student_id');
+
     }
 }
