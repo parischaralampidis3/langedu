@@ -53,7 +53,7 @@ Route::post('/restore/{student:id}',[StudentsController::class,'restore'])->name
 
 //enroll students view route
 
-Route::get('/createEnrollment',[StudentsLessonController::class,'createEnrollment'])->name('students.enrrollStudent');
+Route::get('/createEnrollment',[StudentsLessonController::class,'createEnrollment'])->name('students.enrollStudent');
 
 //enroll students at lessons
 Route::post('/createEnrollment',[StudentsLessonController::class,'storeEnrollment']);

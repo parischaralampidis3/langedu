@@ -27,6 +27,10 @@
                                     the main
                                     page</a>
                             </div>
+
+
+
+
                             <br><br>
                             <div class="flex flex-row mt-5 justify-between">
                                 <h1 class="text-xl mt-5  font-bold">Lessons List</h1>
@@ -34,6 +38,12 @@
                                     <a class="green text-white font-bold py-2 px-2 rounded"
                                         href="{{route('lessons.createLesson')}}">Create Lesson</a>
                                 </div>
+                                  <div class="flex flex-col">
+                                    <a class="green text-white font-bold py-2 px-2 rounded"
+                                        href="{{route('students.enrollStudent')}}">Enroll Student</a>
+                                </div>
+
+                               
                             </div>
                             <br /><br />
 

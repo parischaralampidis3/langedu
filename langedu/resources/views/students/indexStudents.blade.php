@@ -32,6 +32,8 @@
                                     the main
                                     page</a>
                             </div>
+
+                           
                             <br><br>
                             <div class="flex flex-row mt-5 justify-between">
                                 <h1 class="text-xl mt-5  font-bold">Students List</h1>
