@@ -51,8 +51,12 @@ Route::delete('/delete/{student:id}',[StudentsController::class,'destroy'])->nam
 //restore routes
 Route::post('/restore/{student:id}',[StudentsController::class,'restore'])->name('students.restore');
 
+//enroll students view route
+
+Route::get('/createEnrollment',[StudentsLessonController::class,'createEnrollment'])->name('students.enrrollStudent');
+
 //enroll students at lessons
-Route::post('/enroll/{student:id}',[StudentsLessonController::class,'enroll'])->name('students.enroll');
+Route::post('/storeEnrollment/{student:id}',[StudentsLessonController::class,'storeEnrollment'])->name('students.enroll');
 
 
 

@@ -8,14 +8,21 @@ use Illuminate\Http\Request;
 
 class StudentsLessonController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $enrollStudents = Students::has('lessons')->get();
-        return view('students.enrollStudent',['enrollStudents' => $enrollStudents]);
+        return view('students.enrollStudent', ['enrollStudents' => $enrollStudents]);
     }
 
-  
+    public function createEnrollment()
+    {
+        $students = Students::all();
+        $lessons = Lesson::all();
+        return view('students.enrollStudent', compact('students', 'lessons'));
+    }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $validated = $request->validate([
             'student_id' => 'required,max:255',
             'lesson_id' => 'required,max:255'
@@ -24,13 +31,13 @@ class StudentsLessonController extends Controller
         $student = Students::find($validated['student_id']);
         $lesson = Lesson::find($validated['lesson_id']);
 
-        if($student->lessons()->where('lesson_id',$lesson->id)->exists()){
-            return redirect()->back()->with('error','Student is already enrolled in this lesson.');
+        if ($student->lessons()->where('lesson_id', $lesson->id)->exists()) {
+            return redirect()->back()->with('error', 'Student is already enrolled in this lesson.');
         }
 
         $student->lessons()->attach($lesson->id);
 
-        return redirect()->back()->with('success','Student has Enrolled Successfully');
+        return redirect()->back()->with('success', 'Student has Enrolled Successfully');
 
     }  //
 }

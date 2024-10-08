@@ -60,11 +60,9 @@
                                                 @enderror
                                             </div>
                                             <br><br>
-                                            <b type="submit" class="green mt-10 ml-10 bg-green-600 text-white font-bold py-2 px-2 hover:underline">Enroll Student
+                                            <button type="submit" class="green mt-10 ml-10 bg-green-600 text-white font-bold py-2 px-2 hover:underline">Enroll Student
                                             </button>
-
                                 </form>
-                            
                             </div>
                 </div>
             </div>
