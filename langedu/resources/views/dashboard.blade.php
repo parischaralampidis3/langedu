@@ -10,11 +10,10 @@
     .red {
         background-color: rgb(220 38 38);
     }
-   
+
     .suspended {
         opacity: 0.5;
     }
-
 </style>
 
 <x-app-layout>
@@ -22,7 +21,7 @@
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Dashboard') }}
         </h2>
-      
+
     </x-slot>
 
     <div class="py-12">
@@ -41,17 +40,15 @@
 
 
                     <div class="flex flex-col items-center justify-center ">
-                                    <a class="green  text-white text-center font-bold py-2 px-2 rounded"
-                                        href="{{route('students.enrollStudent')}}">Enroll Student</a>
-                                </div>    
+                        <a class="green  text-white text-center font-bold py-2 px-2 rounded"
+                            href="{{route('students.enrollStudent')}}">Enroll Student at Lesson</a>
+                    </div>
                 </div>
 
-
             </div>
-                       
-            
+
         </div>
-      
-    </div>  
-    
+
+    </div>
+
 </x-app-layout>
