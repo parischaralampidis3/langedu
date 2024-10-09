@@ -112,23 +112,18 @@
                                                              
                                                           <p style="padding:20px;">{{ $student->is_suspended ? 'suspended user' : 'not suspend user' }}</p>
                                                           </div>
-                                                        </form>
-
-                                                       
-                                                    </div> 
-                                                  
+                                                        </form>     
+                                                    </div>    
                                                 </td>
-
-                                            </tr>
-                                            
+                                            </tr>   
                                         @endforeach
-                                    
                             </tbody>
                             </table>
                         </div>   
+<!--pagination section-->
                          <div class="mt-4">
                                            {{ $students->links() }}
-                                        </div>
+                        </div>
                     </div>
                 </section>
 
