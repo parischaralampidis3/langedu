@@ -122,9 +122,13 @@
                                             </tr>
                                             
                                         @endforeach
+                                    
                             </tbody>
                             </table>
-                        </div>
+                        </div>   
+                         <div class="mt-4">
+                                           {{ $students->links() }}
+                                        </div>
                     </div>
                 </section>
 

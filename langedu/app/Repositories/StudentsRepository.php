@@ -16,7 +16,7 @@ class StudentsRepository
    /**index method */
    public function index()
    {
-      $students = Students::where('user_id', auth()->id())->latest()->get();
+      $students = Students::where('user_id', auth()->id())->latest()->paginate(15);
       return view('students.indexStudents', ['students' => $students]);
 
       if ($students) {
