@@ -3,6 +3,7 @@
 namespace App\Models;
 use App\Models\User;
 use App\Models\Lesson;
+use App\Models\StudentSettings;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
@@ -20,7 +21,7 @@ class Students extends Model
                             'email', 
                             'dob',
                             'user_id',
-                            'is_suspended'
+                            'is_suspended',
                         ];
 
     public function lessons(){
@@ -29,6 +30,10 @@ class Students extends Model
 
     public function user(){
      return $this->belongsTo(User::class);
+    }
+
+    public function studentSettings(){
+        return $this->hasOne(StudentSettings::class,'student_settings');
     }
    
     public function getFormattedDobAttribute(){
