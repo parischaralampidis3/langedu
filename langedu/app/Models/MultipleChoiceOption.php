@@ -16,6 +16,6 @@ class MultipleChoiceOption extends Model
     protected $table = 'mc_options';
     
     public function mc_questions(){
-        return $this->belongs_to(MultipleChoiceQuestion::class, 'mc_questions');
+        return $this->belongsTo(MultipleChoiceQuestion::class, 'question_id');
     }
 }

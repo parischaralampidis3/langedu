@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\MultipleChoiceOption;
+use App\Models\MultipleChoiceAnswer;
 
 class MultipleChoiceQuestion extends Model
 {
@@ -14,4 +15,6 @@ class MultipleChoiceQuestion extends Model
     public function mc_options(){
         return $this->hasMany(MultipleChoiceOption::class,'mc_options');
     }
+
+
 }
