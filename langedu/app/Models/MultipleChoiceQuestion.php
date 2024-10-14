@@ -4,8 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\MultipleChoiceOption;
 
 class MultipleChoiceQuestion extends Model
 {
     use HasFactory;
+    protected $fillable = ['question_title'];
+    protected $table = 'ms_questions';
+    public function mc_options(){
+        return $this->hasMany(MultipleChoiceOption::class,'mc_options');
+    }
 }
