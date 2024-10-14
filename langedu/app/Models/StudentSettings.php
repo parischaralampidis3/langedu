@@ -19,4 +19,5 @@ class StudentSettings extends Model
     public function student(){
         return $this->belongsTo(Students::class);
     }
+
 }

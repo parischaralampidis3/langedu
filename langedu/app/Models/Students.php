@@ -39,4 +39,6 @@ class Students extends Model
     public function getFormattedDobAttribute(){
         return Carbon::parse($this->attributes['dob'])->format('d F Y');
     }
+
+    
 }
