@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StudentsSettingsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\StudentsLessonController;
+
 
 //Dashboard routes
 Route::get('/dashboard', function () {
@@ -12,6 +14,12 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
+//Settings routes
+
+Route::get('students_settings',[StudentsSettingsController::class,'indexSettings'])->name('settings.indexSettings');
+
+
+//Lessons routes
 //index routes
 Route::get('lessons',[LessonController::class,'indexLessons'])->name('lessons.indexLessons');
 Route::get('lesson/{lesson:id}',[LessonController::class,'showLesson'])->name('lessons.showLesson');

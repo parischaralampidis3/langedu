@@ -34,6 +34,5 @@ class StudentsSettingsController extends Controller
             return response()->json(['message' => 'Settings updated successfully'],200);
         }
  
-       
     }
 }
