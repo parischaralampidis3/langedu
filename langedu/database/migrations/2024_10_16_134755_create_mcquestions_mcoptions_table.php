@@ -1,5 +1,6 @@
 <?php
 
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -11,10 +12,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('mc_answer', function (Blueprint $table) {
+        Schema::create('mcquestions_mcoptions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('option_id')->constrained('mc_options')->onDelete('cascade');
-            $table->foreignId('question_id')->constrained('mc_questions')->onDelete('cascade');
+            $table->foreignId('question_id')->references('id')->on('mc_questions')->onDelete('cascade');
+            $table->foreignId('option_id')->references('id')->on('mc_options')->onDelete('cascade');
+            $table->unique(['question_id', 'option_id']);
             $table->timestamps();
         });
     }
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('mc_answer');
+        Schema::dropIfExists('mcquestions_mcoptions');
     }
 };

@@ -16,10 +16,10 @@ class MultipleChoiceAnswer extends Model
     ];
 
     public function mc_questions(){
-        return $this->belongsTo(MultipleChoiceQuestion::class);
+        return $this->belongsTo(MultipleChoiceQuestion::class,'question_id');
     }
 
     public function mc_options(){
-       return $this->belongsTo(MultipleChoiceOption::class);
+       return $this->belongsTo(MultipleChoiceOption::class, 'option_id');
     } 
 }
