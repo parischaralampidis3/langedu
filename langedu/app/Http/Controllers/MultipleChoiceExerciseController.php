@@ -30,12 +30,20 @@ class MultipleChoiceExerciseController extends Controller
 
     //store mc questions
     public function storeMcQuestion(Request $request){
-        
+        $request -> validate([
+            'question_title'=> 'required|max:255',
+        ]);
+         MultipleChoiceQuestion::create([
+             'question_title'=>$request->input('question_title')
+         ]);
+        return redirect()->back()->with('success', 'Mc Question has been created');
     }
 
     //store mc options
 
-    
+    public function storeMcOptions(Request $request, $id){
+        
+    }
 
 
 }
