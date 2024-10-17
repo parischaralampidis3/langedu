@@ -18,4 +18,5 @@ class MultipleChoiceOption extends Model
     public function mc_questions(){
         return $this->belongsTo(MultipleChoiceQuestion::class, 'question_id');
     }
+    
 }

@@ -18,4 +18,24 @@ class MultipleChoiceExerciseController extends Controller
 
     //index mc questions combined with options
 
+    public function showMcQuestion($id){
+        $showMcQuestion = MultipleChoiceQuestion::with('mc_options')->findOrFail($id);   
+        return view('questions.showmcQuestion',['showMcQuestion' => $showMcQuestion]); 
+    }
+
+    //create method
+    public function create($id){
+        return view('questions.createMcQuestion');
+    }
+
+    //store mc questions
+    public function storeMcQuestion(Request $request){
+        
+    }
+
+    //store mc options
+
+    
+
+
 }
