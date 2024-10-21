@@ -16,5 +16,9 @@ class MultipleChoiceQuestion extends Model
         return $this->hasMany(MultipleChoiceOption::class,'mc_options');
     }
 
+     public function mc_answers() {
+        return $this->hasMany(MultipleChoiceAnswer::class);
+    }
+
 
 }

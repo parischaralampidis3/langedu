@@ -18,5 +18,9 @@ class MultipleChoiceOption extends Model
     public function mc_questions(){
         return $this->belongsTo(MultipleChoiceQuestion::class, 'question_id');
     }
+
+    public function mc_answers() {
+    return $this->hasMany(MultipleChoiceAnswer::class);
+}
     
 }
