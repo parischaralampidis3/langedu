@@ -82,4 +82,16 @@ class MultipleChoiceExerciseController extends Controller
         return redirect()->back()->with('success', 'Mc Answer has been created');
     }
 
+    public function updateQuestion(Request $request, $id){
+
+    }
+
+    public function updateOption(Request $request, $id){
+
+    }
+
+    public function deleteMcQuestion($id){
+        
+    }
+
 }
