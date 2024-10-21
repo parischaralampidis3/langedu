@@ -28,6 +28,7 @@ class MultipleChoiceExerciseController extends Controller
         return view('questions.createMcQuestion');
     }
 
+    
     //store mc questions
     public function storeMcQuestion(Request $request){
         $request -> validate([
@@ -40,10 +41,27 @@ class MultipleChoiceExerciseController extends Controller
     }
 
     //store mc options
+public function storeMcOptions(Request $request, $id) {
+    // Validate incoming request data
+    $McOption = $request->validate([
+        'option_text' => 'required|max:255',
+        'is_correct' => 'required|boolean'
+    ]);
 
-    public function storeMcOptions(Request $request, $id){
-        
-    }
+    // Find the related question
+    $question = MultipleChoiceQuestion::findOrFail($id);
+
+    // Create a new instance of MultipleChoiceOption using the validated data
+    $option = new MultipleChoiceOption($McOption);
+
+    // Save the option related to the question
+    $question->mc_options()->save($option);
+
+    // Redirect back with a success message
+    return redirect()->back()->with('success', 'Mc Options has been created');
+
+}
+
 
 
 }
